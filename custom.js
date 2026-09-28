@@ -875,6 +875,26 @@ function initNavbarScroll() {
       },
     });
 }
+function initHowItWorksCardActiveToggle() {
+  const cards = document.querySelectorAll(".how-it-work_item-link");
+  if (!cards.length) return;
+
+  document.querySelectorAll(".how-it-work_item-link").forEach(function (item) {
+    item.addEventListener("mouseenter", function () {
+      document.querySelectorAll(".how-it-work_item-link").forEach(function (el) {
+        el.classList.remove("is-active");
+      });
+      this.classList.add("is-active");
+    });
+
+    item.addEventListener("mouseleave", function () {
+      document.querySelectorAll(".how-it-work_item-link").forEach(function (el) {
+        el.classList.remove("is-active");
+      });
+      document.querySelector(".how-it-work_item-link").classList.add("is-active");
+    });
+  });
+}
 (document.addEventListener("DOMContentLoaded", function () {
   (lenis(),
     initAnimationBorder(),
@@ -886,9 +906,9 @@ function initNavbarScroll() {
     initReviewSwiper(),
     splitLinesAnimation(),
     initAccordionCSS(),
-    initDynamicCurrentYear(),
     handleResize(),
-    initGlobalParallax());
+    initGlobalParallax(),
+    initHowItWorksCardActiveToggle());
 }),
   window.addEventListener("resize", handleResize));
 
