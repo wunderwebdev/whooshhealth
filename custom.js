@@ -612,7 +612,11 @@ function initMegaNavDirectionalHover() {
 
   backBtn.addEventListener("click", closeMobilePanel);
 
-  mobileNavLinks.forEach((link) => link.addEventListener("click", closeMobilePanel));
+  mobileNavLinks.forEach((link) =>
+    link.addEventListener("click", () => {
+      if (state.isMobile && state.mobileMenuOpen) closeMobileMenu();
+    }),
+  );
 
   window.addEventListener("resize", handleResize);
 
