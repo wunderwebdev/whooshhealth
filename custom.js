@@ -54,6 +54,7 @@ function initMegaNavDirectionalHover() {
   const panels = [...document.querySelectorAll("[data-nav-content]")];
   const burger = document.querySelector("[data-burger-toggle]");
   const backBtn = document.querySelector("[data-mobile-back]");
+  const mobileNavLinks = document.querySelectorAll(".mega-nav_mobile .mega-nav__panel-link");
   const logo = document.querySelector("[data-menu-logo]");
   const [lineTop, lineMid, lineBot] = ["top", "mid", "bot"].map((id) => document.querySelector(`[data-burger-line='${id}']`));
 
@@ -611,6 +612,8 @@ function initMegaNavDirectionalHover() {
 
   backBtn.addEventListener("click", closeMobilePanel);
 
+  mobileNavLinks.forEach((link) => link.addEventListener("click", closeMobilePanel));
+
   window.addEventListener("resize", handleResize);
 
   // INIT
@@ -790,7 +793,7 @@ function initPlanSwiper() {
   e &&
     (window.innerWidth <= 991
       ? planSwiper ||
-        (planSwiper = new Swiper(e, { slidesPerView: 1, spaceBetween: 15, grabCursor: !0, pagination: { el: ".swiper-pagination", type: "progressbar" }, breakpoints: { 768: { slidesPerView: 1, spaceBetween: 15, centeredSlides: !0 } } }))
+        (planSwiper = new Swiper(e, { slidesPerView: 1, spaceBetween: 10, grabCursor: !0, pagination: { el: ".swiper-pagination", type: "progressbar" }, breakpoints: { 768: { slidesPerView: 1, spaceBetween: 15, centeredSlides: !0 } } }))
       : planSwiper && (planSwiper.destroy(!0, !0), (planSwiper = null)));
 }
 function initPricingSlider() {
