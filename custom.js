@@ -902,6 +902,36 @@ function initHowItWorksCardActiveToggle() {
     });
   });
 }
+function initVideoPlayOnce() {
+  const videos = document.querySelectorAll("[data-video-play-once]");
+  if (!videos.length) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) return;
+
+  videos.forEach((video) => {
+    video.loop = false;
+    video.muted = true;
+
+    ScrollTrigger.create({
+      trigger: video,
+      start: "top 75%",
+      end: "bottom top",
+      invalidateOnRefresh: true,
+      onEnter: (self) => playOnce(video, self),
+      onEnterBack: (self) => playOnce(video, self),
+    });
+  });
+
+  function playOnce(video, trigger) {
+    const playPromise = video.play();
+    if (playPromise) playPromise.catch(() => {});
+    trigger.kill();
+  }
+
+  ScrollTrigger.refresh();
+}
+
 (document.addEventListener("DOMContentLoaded", function () {
   (lenis(),
     initAnimationBorder(),
