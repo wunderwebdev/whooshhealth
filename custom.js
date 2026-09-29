@@ -944,6 +944,7 @@ function initVideoPlayOnce() {
     splitLinesAnimation(),
     initAccordionCSS(),
     handleResize(),
+    initVideoPlayOnce(),
     initGlobalParallax(),
     initHowItWorksCardActiveToggle());
 }),
