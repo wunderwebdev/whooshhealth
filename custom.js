@@ -563,7 +563,7 @@ function initMegaNavDirectionalHover() {
         gsap.set(getNavItems(), { clearProps: "all" });
         gsap.set(backBtn, { autoAlpha: 0 });
         gsap.set(logo, { clearProps: "all" });
-        gsap.set([lineTop, lineMid, lineBot], { rotation: 0, y: 0, autoAlpha: 1 });
+        // gsap.set([lineTop, lineMid, lineBot], { rotation: 0, y: 0, autoAlpha: 1 });
 
         panels.forEach((p) => {
           gsap.set(p, { clearProps: "all" });
