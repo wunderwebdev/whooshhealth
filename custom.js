@@ -945,8 +945,7 @@ function initVideoPlayOnce() {
     initAccordionCSS(),
     handleResize(),
     initVideoPlayOnce(),
-    initGlobalParallax(),
-    initHowItWorksCardActiveToggle());
+    initGlobalParallax());
 }),
   window.addEventListener("resize", handleResize));
 
